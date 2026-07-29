@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 中文密码测试</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🔐 用户登录</h1>
+            <p class="subtitle">支持多种编码兼容 · 默认 UTF-8</p>
+
+            {% if error %}
+            <div class="alert alert-error
+                {% if error_code == 2001 %}alert-encoding{% endif %}
+                {% if error_code == 4000 %}alert-invalid{% endif %}">
+                {{ error }}
+                {% if error_code == 2001 %}
+                <br><br>
+                <a href="{{ url_for('register') }}" class="btn btn-small">👉 前往重置密码</a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <form method="post" action="{{ url_for('login_page') }}">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username"
+                           placeholder="输入用户名" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password"
+                           placeholder="输入密码（支持中文）" required>
+                </div>
+                <div class="form-group">
+                    <label for="encoding">编码选择</label>
+                    <select id="encoding" name="encoding">
+                        {% for enc in allowed_encodings %}
+                        <option value="{{ enc }}"
+                            {% if enc == selected_encoding %}selected{% endif %}>
+                            {{ enc.upper() }}
+                            {% if enc == "utf-8" %}（推荐）{% endif %}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <small class="hint">
+                        💡 GBK/GB2312 不支持生僻字和 Emoji；推荐使用 UTF-8。<br>
+                        如果默认 UTF-8 登录失败，可尝试切换其他编码。
+                    </small>
+                </div>
+                <button type="submit" class="btn btn-primary">登录</button>
+            </form>
+
+            <p class="footer-link">
+                没有账号？<a href="{{ url_for('register') }}">去注册</a>
+            </p>
+
+            <div class="info-box">
+                <strong>🧪 登录兼容机制说明：</strong><br>
+                选择不同编码，密码会以该编码的字节去比对数据库中的 UTF-8 哈希。<br>
+                这能修复某些老旧客户端编码错乱导致的登录失败问题。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

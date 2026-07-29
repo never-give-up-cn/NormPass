@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 中文密码测试</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📝 注册账号</h1>
+            <p class="subtitle">支!持中文密码 · UTF-8 标准存储</p>
+
+            {% if error %}
+            <div class="alert alert-error">{{ error }}</div>
+            {% endif %}
+            {% if success %}
+            <div class="alert alert-success">{{ success }}</div>
+            {% endif %}
+
+            <form method="post" action="{{ url_for('register') }}">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username"
+                           placeholder="输入用户名（字母/数字/中文均可）"
+                           maxlength="100" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password"
+                           placeholder="支持中文、Emoji、特殊字符"
+                           required>
+                    <small class="hint">你可以用中文、Emoji 🎉、生僻字 䂙 等任意字符作为密码</small>
+                </div>
+                <button type="submit" class="btn btn-primary">注册</button>
+            </form>
+
+            <p class="footer-link">
+                已有账号？<a href="{{ url_for('login_page') }}">去登录</a>
+            </p>
+
+            <div class="info-box">
+                <strong>🔒 密码存储规则：</strong><br>
+                明文 → Unicode NFC 标准化 → UTF-8 编码字节 → bcrypt 哈希 → 入库
+            </div>
+        </div>
+    </div>
+</body>
+</html>

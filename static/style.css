@@ -1,0 +1,263 @@
+/* ============================================================
+   中文密码测试网站 - 样式
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue",
+                 Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* ---- 表单 ---- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fafafa;
+}
+
+input:focus,
+select:focus {
+    border-color: #667eea;
+    background: #fff;
+}
+
+.hint {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+select {
+    cursor: pointer;
+    appearance: auto;
+}
+
+/* ---- 按钮 ---- */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    font-size: 16px;
+    padding: 14px;
+    margin-top: 8px;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #555;
+}
+
+.btn-small {
+    font-size: 13px;
+    padding: 8px 16px;
+    background: #667eea;
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* ---- 提示框 ---- */
+.alert {
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.alert-error {
+    background: #fff0f0;
+    color: #c0392b;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background: #f0fff4;
+    color: #27ae60;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-encoding {
+    background: #fff8e1;
+    color: #e67e22;
+    border: 1px solid #ffeeba;
+}
+
+.alert-invalid {
+    background: #fce4ec;
+    color: #c62828;
+    border: 1px solid #f8bbd0;
+}
+
+/* ---- 页脚链接 ---- */
+.footer-link {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-top: 24px;
+}
+
+.footer-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}
+
+/* ---- 信息框 ---- */
+.info-box {
+    background: #f8f9ff;
+    border: 1px solid #e8ecf4;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* ---- 首页样式 ---- */
+.success-icon {
+    text-align: center;
+    font-size: 48px;
+    margin: 16px 0;
+}
+
+.welcome-text {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 28px;
+}
+
+.test-section {
+    margin-bottom: 24px;
+}
+
+.test-section h2 {
+    font-size: 16px;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.scenario-list {
+    list-style: none;
+    padding: 0;
+}
+
+.scenario-list li {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: #f8f9ff;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    border-left: 3px solid #667eea;
+}
+
+.scenario-list li em {
+    color: #e67e22;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 520px) {
+    .card {
+        padding: 28px 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .success-icon {
+        font-size: 36px;
+    }
+}
